@@ -1,0 +1,219 @@
+.photoContainer {
+    height: 100vh;
+    width: 100vw;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.headerPattern {
+    height: 520px;
+    width: 900px;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    background-repeat: no-repeat; 
+    background-position: left center; 
+}
+
+.footerPattern {
+    height: 500px;
+    width: 400px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-repeat: no-repeat; 
+    background-position: right center; 
+}
+
+.imageCaptureContainer {
+    position: absolute;
+    width: 740px;
+    height: 600px;
+    left: 27%;
+    top: 60px;
+    border: 6px solid var(--colour-lilac);
+    box-sizing: border-box;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+.imageCapture {
+    position: absolute;
+    right: 32.4%;
+    top: 20.65%;
+    bottom: 51.01%;
+    width: 300px;
+    height: 350px;
+    cursor: pointer;
+}
+
+.timeInSec {
+    position: absolute;
+    right: 32.4%;
+    top: 29.65%;
+    bottom: 51.01%;
+    width: 300px;
+    height: 350px;
+    font-family: 'TitlingGothicFB-Skyline-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 250px;
+    line-height: 300px;
+    text-align: center;
+    color: var(--colour-white);
+}
+
+.imageCapture h3 {
+    position: absolute;
+    left: 35px;
+    margin:0;
+    width: fit-content;
+    height: fit-content;
+    color: var(--colour-white);
+    font-family: 'TitlingGothicFB-Extended-Bold';
+    text-transform: uppercase;
+    font-size: 70px;
+    line-height: 120px;
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+
+.logo {
+    display: inline-block;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.footer {
+    position: relative;
+    width: 600px;
+    height: 75.1px;
+    left: 32%;
+    top: 700px;
+    display: inline-block;
+}
+
+.photoButton, .retakeButton {
+    position: absolute;
+    width: 250px;
+    height: 65px;
+    background: #000000;
+    border: 3px solid var(--colour-lilac);
+    box-sizing: border-box;
+    font-family: Titling Gothic FB Extended;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: var(--colour-black);
+    text-transform: uppercase;
+    background: var(--colour-lilac);
+    cursor: pointer;
+}
+
+.gifButton, .sendTextButton {
+    position: absolute;
+    width: 250px;
+    height: 65px;
+    left: 340px;
+    background: var(--colour-black); 
+    font-family: 'Titling Gothic FB Extended';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: var(--colour-pink);
+    border: 4px solid var(--colour-pink);
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.gifButton:hover{
+    background: var(--colour-pink);
+    color: var(--colour-black);
+}
+
+.sendTextButton {
+    font-size: 20px !important;
+    line-height: 24px !important;
+    color: var(--colour-white) !important;
+    background: var(--colour-black) !important;
+    border: 4px solid var(--colour-white) !important;
+}
+
+/* Landscape mode */
+@media only screen and (min-width: 810px) and (max-width: 1080px) {
+
+    h2 {
+        width: 575px;
+        height: 76px;
+        font-size: 77px;
+        letter-spacing: 0.16em;
+    }
+
+    .footer {
+        top: 1213px;
+        left: 240px;
+    }
+
+    .footerPattern {
+        bottom: -535px;
+        right: 0; 
+    }
+
+    .imageCaptureContainer{
+        width: 861px;
+        height: 1075px;
+        left: 105px;
+        right: 74px;
+        top: 80px;
+        border: none;
+        background-image: url('../../Images/frame-lilac.svg');
+    }
+
+    .imageCapture {
+        right: 32.4%;
+        top: 33.65%;
+    }
+
+    .timeInSec {
+        top: 35.65%;
+    }
+}
+
+/* portrait mode */
+@media only screen and (min-width: 810px) and (orientation: portrait) {
+
+    .footerPattern {
+        bottom: -300px;
+        right: -210px; 
+    }
+
+    .imageCaptureContainer{
+        left: 70px;
+        right: 84px;
+    }
+
+    .footer {
+        top: 1213px;
+        left: 200px;
+    }
+}

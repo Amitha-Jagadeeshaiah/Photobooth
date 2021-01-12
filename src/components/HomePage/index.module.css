@@ -1,0 +1,125 @@
+.homepageContainer {
+    height: 100vh;
+    width: 100vw;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.headerPattern {
+    height: 360px;
+    width: 1000px;
+    position: absolute;
+    top: -20px;
+    right: 0;
+    background-repeat: no-repeat; 
+    background-position: right center; 
+}
+
+.footerPattern {
+    height: 360px;
+    width: 1000px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-repeat: no-repeat;
+}
+
+.header {
+    display: block;
+    width: 620px;
+    height: 324px;
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    position: absolute;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 273px;
+    width: 483px;
+    margin: 0px;
+    top: 50px;
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+h2 {
+    position: absolute;
+    width: 474px;
+    height: 76px;
+    margin: 0px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 63px;
+    letter-spacing: 0.17em;
+}
+
+.footer {
+    position: absolute;
+    right: 25px;
+    bottom: 0;
+}
+
+.footer img {
+    position: relative;
+    padding-top: 20px ;
+}
+
+/* Landscape mode */
+@media only screen and (min-width: 810px) and (max-width: 1080px) {
+
+    h1 {
+        font-size: 320px;
+        width: 573px;
+        text-align: center;
+        letter-spacing: 0.03em;
+    }
+
+    h2 {
+        width: 575px;
+        height: 76px;
+        font-size: 77px;
+        letter-spacing: 0.16em;
+    }
+
+    .headerPattern {
+        height: 260px;
+        width: 1000px;
+    }
+    
+    .footerPattern {
+        height: 300px;
+        width: 1000px;
+    }
+}
+
+/* portrait mode */
+@media only screen and (min-width: 810px) and (orientation: portrait) {
+
+    .headerPattern {
+        top: 0;
+        right: -200px;
+    }
+
+    .header {
+        top: 57%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+    }
+
+    .footerPattern {
+        bottom: -260px;
+        left: 0px; 
+    }
+
+    .footer {
+        bottom: -270px;
+        right: -150px;
+    }
+}
+

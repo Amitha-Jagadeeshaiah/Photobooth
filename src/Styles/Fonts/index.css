@@ -1,0 +1,37 @@
+/**
+ * Titling Gothic FB
+ */
+
+@font-face {
+    font-family: 'TitlingGothicFB-Extended-Bold';
+    src: url('TitlingGothicFB-Extended-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'TitlingGothicFB-Skyline-Medium';
+    src: url('TitlingGothicFB-Skyline-Medium.ttf');
+}
+
+/**
+ * Sharp Sans
+ */
+
+@font-face {
+    font-family: 'SharpSans-Medium';
+    src: url('SharpSans-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'SharpSans-MediumItalic';
+    src: url('SharpSans-MediumItalic.ttf');
+}
+
+@font-face {
+    font-family: 'SharpSans-Bold';
+    src: url('SharpSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'SharpSans-BoldItalic';
+    src: url('SharpSans-BoldItalic.ttf');
+}

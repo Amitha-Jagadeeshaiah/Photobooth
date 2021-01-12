@@ -1,0 +1,47 @@
+body {
+    /* Colours */
+    --colour-black: #000000;
+    --colour-lilac: #A79BFD;
+    --colour-pink: #FF99D1;
+    --colour-turquoise: #59ffc6;
+    --colour-white: #ffffff;
+   
+    /* Elements */
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--colour-white);
+    background-color: var(--colour-black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h2 {
+    color: var(--colour-white);
+    font-family: 'TitlingGothicFB-Extended-Bold';
+    text-transform: uppercase;
+  }
+
+  h1 {
+    color: var(--colour-turquoise);
+    font-family: 'TitlingGothicFB-Skyline-Medium';
+    text-transform: uppercase;
+  }
+  
+  p {
+    color: var(--colour-white);
+    font-family: 'SharpSans-Bold';
+    font-size: 25px;
+  }
+  
+  a {
+    color: var(--colour-turquoise);
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  
+  button:disabled { opacity: 0.5; }
+
+  

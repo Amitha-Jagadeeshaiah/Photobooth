@@ -41,13 +41,17 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    border: 6px solid var(--colour-lilac);
+    box-sizing: border-box;
 }
 
-video {
+.imageCaptureContainer video {
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
+    border: 6px solid var(--colour-lilac);
+    box-sizing: border-box;
   }
 
 .imageCapture {
@@ -125,6 +129,17 @@ video {
     text-transform: uppercase;
     background: var(--colour-lilac);
     cursor: pointer;
+    outline: none;
+}
+
+.retakeButton {
+    background: var(--colour-black) !important;
+    color: var(--colour-lilac) !important;
+}
+
+.retakeButton:hover {
+    background: var(--colour-lilac) !important;
+    color: var(--colour-black) !important;
 }
 
 .gifButton, .sendTextButton {
@@ -144,6 +159,7 @@ video {
     border: 4px solid var(--colour-pink);
     text-transform: uppercase;
     cursor: pointer;
+    outline: none;
 }
 
 .gifButton:hover{
@@ -157,6 +173,12 @@ video {
     color: var(--colour-white) !important;
     background: var(--colour-black) !important;
     border: 4px solid var(--colour-white) !important;
+    outline: none;
+}
+
+.sendTextButton:hover{
+    background: var(--colour-white) !important;
+    color: var(--colour-black) !important ;
 }
 
 /* Landscape mode */

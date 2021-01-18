@@ -6,14 +6,16 @@ import CreateGIF from '../CreateGIF';
 import SendText from '../SendText';
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route path = '/' component = { HomePage } exact />
-        <Route path = '/photo' component = { CapturePhoto } exact />
-        <Route path = '/gif' component = { CreateGIF } exact />
-        <Route path = '/sendText' component = { SendText } exact />
-      </Switch>
-    </BrowserRouter>
-  );
+
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route path = '/' component = { HomePage } exact />
+                <Route path = '/photo' component = { CapturePhoto } exact />
+                <Route path = '/gif' component = { CreateGIF } exact />
+                <Route path = '/sendText' component = { SendText } exact />
+            </Switch>
+        </BrowserRouter>
+    );
+
 }

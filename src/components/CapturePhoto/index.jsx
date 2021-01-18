@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 /* eslint-disable max-len */
 import React, { createRef } from 'react';
 import Webcam from 'react-webcam';
@@ -35,7 +34,7 @@ export default class CapturePhoto extends React.Component {
 
         this.state = {
             startTimerClicked: false,
-            seconds: 7,
+            seconds: 6,
             timerSec: 4,
             imgSrc: null
         };
@@ -44,7 +43,7 @@ export default class CapturePhoto extends React.Component {
 
     }
 
-    startTimer=()=>{
+    startTimer = () => {
 
         if (this.timer === 0 && this.state.seconds >= 0) {
 
@@ -54,7 +53,7 @@ export default class CapturePhoto extends React.Component {
 
     }
 
-    countDown=()=>{
+    countDown = () => {
 
         const { seconds, timerSec } = this.state;
         const secondsNext = seconds - 1;
@@ -91,7 +90,7 @@ export default class CapturePhoto extends React.Component {
         this.timer = 0;
         this.setState(prevState => ({
             startTimerClicked: prevState.startTimerClicked && false,
-            seconds: 7,
+            seconds: 6,
             timerSec: 4,
             imgSrc: prevState.imgSrc !== null && null
         }));
@@ -110,10 +109,11 @@ export default class CapturePhoto extends React.Component {
                 >
                     {
                         this.state.imgSrc
-                            ? <img className={image} src={this.state.imgSrc} alt='selfie' />
+                            ?<img className={image} src={this.state.imgSrc} alt='selfie' />
                             : this.state.startTimerClicked
-                                ? this.state.seconds > 3
-                                    ? <span className={timeInSec}>{this.state.timerSec}</span>
+                                ? this.state.seconds > 2
+                                    ? <span className={timeInSec}>
+                                        {this.state.timerSec}</span>
                                     : (
                                         <Webcam audio={false}
                                             ref={this.webcamRef}
@@ -124,7 +124,10 @@ export default class CapturePhoto extends React.Component {
                                     )
                                 : (
                                     <div className={imageCapture}>
-                                        <img className={cameraImage} src={cameraIcon} alt='camera' />
+                                        <img className={cameraImage}
+                                            src={cameraIcon}
+                                            alt='camera'
+                                        />
                                         <h3>Tap</h3>
                                     </div>
                                 )
@@ -136,26 +139,46 @@ export default class CapturePhoto extends React.Component {
                 {this.state.imgSrc
                     ? (
                         <div className={footer}>
-                            <button className={retakeButton} onClick={this.retakePhoto}>Retake</button>
+                            <button className={retakeButton} type="button"
+                                onClick={this.retakePhoto}
+                            >
+                                Retake
+                            </button>
                             <Link to={{
                                 pathname: '/sendText'
                             }}
-                            ><button className={sendTextButton}>Send via Text</button>
+                            >
+                                <button className={sendTextButton}
+                                    type="button"
+                                >
+                                    Send via Text
+                                </button>
                             </Link>
                         </div>
                     )
                     : (
                         <div className={footer}>
-                            <button className={photoButton}>Photo</button>
+                            <button className={photoButton}
+                                type="button"
+                            >
+                                Photo
+                            </button>
                             <Link to={{
                                 pathname: '/gif'
                             }}
-                            ><button className={gifButton}>Gif</button>
+                            >
+                                <button className={gifButton}
+                                    type="button"
+                                >
+                                    Gif
+                                </button>
                             </Link>
                         </div>
                     )
                 }
-                <div className={footerPattern} style={{ backgroundImage: `url('${lilacPattern} ')` }} />
+                <div className={footerPattern}
+                    style={{ backgroundImage: `url('${lilacPattern} ')` }}
+                />
             </div>
         );
 

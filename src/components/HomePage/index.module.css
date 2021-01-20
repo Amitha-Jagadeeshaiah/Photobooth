@@ -9,9 +9,9 @@
 
 .headerPattern {
     height: 360px;
-    width: 1000px;
+    width: 700px;
     position: absolute;
-    top: -20px;
+    top: 0;
     right: 0;
     background-repeat: no-repeat; 
     background-position: right center; 
@@ -19,7 +19,7 @@
 
 .footerPattern {
     height: 360px;
-    width: 1000px;
+    width: 700px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -29,7 +29,7 @@
 .header {
     display: block;
     width: 620px;
-    height: 324px;
+    height: 370px;
     position: absolute;
     cursor: pointer;
     top: 50%;
@@ -89,37 +89,17 @@ h2 {
 
     .headerPattern {
         height: 260px;
-        width: 1000px;
+        width: 700px;
     }
     
     .footerPattern {
-        height: 300px;
-        width: 1000px;
+        height: 330px;
+        width: 600px;
     }
 }
 
 /* portrait mode */
 @media only screen and (min-width: 810px) and (orientation: portrait) {
 
-    .headerPattern {
-        top: 0;
-        right: -200px;
-    }
-
-    .header {
-        top: 57%;
-        left: 65%;
-        transform: translate(-50%, -50%);
-    }
-
-    .footerPattern {
-        bottom: -260px;
-        left: 0px; 
-    }
-
-    .footer {
-        bottom: -270px;
-        right: -150px;
-    }
 }
 

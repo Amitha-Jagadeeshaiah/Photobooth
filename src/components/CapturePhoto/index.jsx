@@ -116,11 +116,12 @@ export default class CapturePhoto extends React.Component {
                     {
                         this.state.imgSrc
                             ? <img className={image} src={this.state.imgSrc} alt='selfie' />
-                            : this.state.startTimerClicked && this.state.seconds > 0
-                                ? (
-                                    <span className={timeInSec}>
-                                    {this.state.seconds}</span>
-                                )
+                            : this.state.startTimerClicked
+                                ? this.state.seconds > 0
+                                    && (
+                                        <span className={timeInSec}>
+                                            {this.state.seconds}</span>
+                                    )
                                 : (
                                     <div className={imageCapture}>
                                         <img className={cameraImage}

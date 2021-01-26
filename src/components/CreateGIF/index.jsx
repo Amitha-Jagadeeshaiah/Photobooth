@@ -147,9 +147,9 @@ export default class CreateGIF extends React.Component {
     createGIF = () => {
 
         gifshot.createGIF({
-            gifWidth: 750,
-            gifHeight: 600,
-            interval: 0.6,
+            gifWidth: 500,
+            gifHeight: 500,
+            interval: 0.5,
             images: this.state.imgSrc
         }, (obj) => {
 
@@ -207,7 +207,7 @@ export default class CreateGIF extends React.Component {
                         !this.state.gifVideo && (
                             <Webcam audio
                                 ref={this.webcamRef}
-                                screenshotFormat="image/jpeg"
+                                screenshotFormat="image/mjpeg"
                                 imageSmoothing='true'
                             />
                         )
@@ -295,7 +295,7 @@ export default class CreateGIF extends React.Component {
                                 </button>
                                 <Link to={{
                                     pathname: '/sendText',
-                                    data:this.state.gifVideo
+                                    data: this.state.gifVideo
                                 }}
                                 >
                                     <button className={sendTextButton}

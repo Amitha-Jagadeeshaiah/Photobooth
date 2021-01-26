@@ -53,7 +53,7 @@ module.exports= {
         'react/button-has-type': [ 1 ],
         'react/jsx-boolean-value': [ 1 ],
         'react/jsx-tag-spacing': [ 1 ],
-        'react/prop-types': [ 1 ],
+        'react/prop-types': [ 0 ],
         'react/self-closing-comp': [ 1 ],
         'react/jsx-closing-bracket-location': [ 1 ],
         'react/jsx-props-no-spreading': [ 0 ],

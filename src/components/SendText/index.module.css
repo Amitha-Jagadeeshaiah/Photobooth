@@ -1,0 +1,148 @@
+.mobileContainer {
+    height: 100vh;
+    width: 100vw;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+}
+
+.previousPage {
+    position: absolute;
+    left: 5.76%;
+    right: 91.85%;
+    top: 20.6%;
+    cursor: pointer;
+}
+
+.headerPattern {
+    height: 200px;
+    width: 700px;
+    position: absolute;
+    top: 0;
+    right:0;
+    background-repeat: no-repeat; 
+    background-position: right center;
+    pointer-events: none;
+}
+
+.dataContainer {
+    position: absolute;
+    width: 640px;
+    height: 900px;
+    left: 40%;
+    top: 20%;
+    box-sizing: border-box;
+}
+.heading {
+    position: absolute;
+    width: 485px;
+    height: 70px;
+    left: 70px;
+}
+
+.heading1, .heading2 {
+    margin: 0;
+    font-family: 'TitlingGothicFB-Extended-Bold';
+    font-style: normal;
+    font-weight: bold;
+    line-height: 98.5%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.heading1 {
+    font-size: 19px;
+    color: var(--colour-white);
+}
+
+.heading2 {
+    margin-top: 8px !important;
+    font-size: 33px;
+    color: var(--colour-turquoise);
+}
+
+.mobileKeypadDisplay {
+    position: relative;
+    height: 128px;
+    border-left: 4px solid var(--colour-white);
+    text-align: center;
+}
+
+.mobileKeypadDisplay::after {
+    position: absolute;
+    content: '';
+    width: 57px;
+    height:5px;
+    background: var(--colour-white);
+    bottom: 18px;
+    left: calc(50% - 28.5px);
+}
+
+.keysDisplay {
+    position: relative;
+    width: 312px;
+    height: 64px;
+    top: 40px;
+    padding: 4px;
+    font-family: 'SharpSans-MediumItalic';
+    font-weight: 500;
+    font-size: 49px;
+    line-height: 64px;
+    text-align: center;
+    color: var(--colour-turquoise);
+}
+
+.mobileKeypadKeys {
+    height: 508px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.mobilekeypadContainer {
+    position: absolute;
+    left: 12%;
+    right: 30.4%;
+    top: 15.65%;
+    bottom: 51.01%;
+    width: 467px;
+    height: 636px;
+    border-top: 4px solid var(--colour-white);
+    border-right: 4px solid var(--colour-white);
+    border-bottom: 4px solid var(--colour-white);
+    border-radius: 13px;
+    overflow: hidden;
+}
+
+.mobilekeypadKey {
+    border-top: 4px solid var(--colour-white);
+    border-left: 4px solid var(--colour-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'SharpSans-Bold';
+    font-size: 50px;
+    line-height: 66px;
+}
+
+/* portrait mode */
+@media only screen and (min-width: 810px) and (orientation: portrait) {
+    .dataContainer {
+        position: absolute;
+        width: 640px;
+        height: 900px;
+        left: 90px;
+        top: 150px;
+        box-sizing: border-box;
+    }
+    
+}
+

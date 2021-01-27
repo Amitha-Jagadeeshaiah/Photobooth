@@ -102,7 +102,11 @@ export default class SendText extends React.Component {
                                             <div
                                                 className={mobilekeypadKey}
                                                 key={key}
-                                                onClick={()=>{this.handleClick(key);}}
+                                                onClick={()=>{
+
+                                                    this.handleClick(key);
+
+                                                }}
                                             >
                                                 <DeleteIcon />
                                             </div>
@@ -130,7 +134,11 @@ export default class SendText extends React.Component {
                                         <div
                                             className={mobilekeypadKey}
                                             key={key}
-                                            onClick={()=>{this.handleClick(key);}}
+                                            onClick={()=>{
+
+                                                this.handleClick(key);
+
+                                            }}
                                         >
                                             {key}
                                         </div>

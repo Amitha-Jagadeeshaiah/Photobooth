@@ -5,6 +5,7 @@ import CapturePhoto from '../CapturePhoto';
 import CreateGIF from '../CreateGIF';
 import SendText from '../SendText';
 import SignUp from '../SignUp';
+import ImageSent from '../ImageSent';
 
 export default function App() {
 
@@ -16,6 +17,7 @@ export default function App() {
                 <Route path = '/gif' component = { CreateGIF } exact />
                 <Route path = '/sendText' component = { SendText } exact />
                 <Route path = '/signUp' component = { SignUp } exact />
+                <Route path = '/imageSent' component = { ImageSent } exact />
             </Switch>
         </BrowserRouter>
     );

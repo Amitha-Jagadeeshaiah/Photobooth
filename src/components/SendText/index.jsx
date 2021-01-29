@@ -119,7 +119,7 @@ export default class SendText extends React.Component {
                                             <div className={mobilekeypadKey} key={key} >
                                                 <Link to={{
                                                     pathname: '/signUp',
-                                                    phone: this.state.mobileNumber,
+                                                    mobileNumber: this.state.mobileNumber,
                                                     data: this.state.data
                                                 }}
                                                 >

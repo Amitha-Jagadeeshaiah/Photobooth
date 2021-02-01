@@ -4,7 +4,6 @@ import Webcam from 'react-webcam';
 import { Link } from 'react-router-dom';
 import Styles from './index.module.css';
 import whitePattern from '../../Images/GIF-header-pattern.svg';
-import lilacPattern from '../../Images/pattern-lilac2.svg';
 import tocalogo from '../../Images/tocalogo-pink.svg';
 import videoImage from '../../Images/gif-icon.svg';
 import videoPlayButton from '../../Images/play-button.svg';
@@ -26,8 +25,7 @@ const {
     photoButton,
     gifButton,
     retakeButton,
-    sendTextButton,
-    footerPattern
+    sendTextButton
 } = Styles;
 
 export default class CreateGIF extends React.Component {
@@ -147,9 +145,9 @@ export default class CreateGIF extends React.Component {
     createGIF = () => {
 
         gifshot.createGIF({
-            gifWidth: 500,
-            gifHeight: 500,
-            interval: 0.5,
+            gifWidth: 600,
+            gifHeight: 600,
+            interval: 0.4,
             images: this.state.imgSrc
         }, (obj) => {
 
@@ -189,7 +187,7 @@ export default class CreateGIF extends React.Component {
 
         return !this.state.startTimerClicked && this.state.imgSrc.length === 0
             ? headerPattern
-            : null;
+            : '';
 
     }
 
@@ -307,9 +305,6 @@ export default class CreateGIF extends React.Component {
                             </div>
                         )
                 }
-                <div className={footerPattern}
-                    style={{ backgroundImage: `url('${lilacPattern} ')` }}
-                />
             </div>
         );
 

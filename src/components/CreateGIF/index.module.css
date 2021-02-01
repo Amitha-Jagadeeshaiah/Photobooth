@@ -6,26 +6,27 @@
     box-sizing: border-box;
 }
 
+.gifContainer::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(../../Images/pattern-lilac2.svg);
+    background-repeat: no-repeat;
+    background-position: 0px 680px;
+    background-size: 90%;
+}
+
 .headerPattern {
-    height: 400px;
+    height: 420px;
     width: 600px;
     position: absolute;
     top: 0;
     right: 0;
     background-repeat: no-repeat; 
     background-position: right center; 
-    outline: none;
-}
-
-.footerPattern {
-    height: 500px;
-    width: 400px;
-    position: absolute;
-    bottom: -60px;
-    left: 0;
-    background-repeat: no-repeat; 
-    background-position: left center; 
-    outline: none;
     pointer-events: none;
 }
 
@@ -38,6 +39,7 @@
     border: 6px solid var(--colour-pink);
     box-sizing: border-box;
     outline: none;
+    background: var(--colour-black); 
 }
 
 .gifImageContainer{
@@ -45,6 +47,8 @@
     height: 100%;
     box-sizing: border-box;
     outline: none;
+    background: transparent;
+    box-shadow: none;
 }
 
 .image {
@@ -64,6 +68,8 @@
     bottom: 51.01%;
     cursor: pointer;
     outline: none;
+    background: transparent;
+    box-shadow: none;
 }
 
 .imageCaptureContainer video {
@@ -87,14 +93,16 @@
 
 .videoCapture {
     position: absolute;
-    left: 31%;
+    left: 25%;
     right: 32.4%;
-    top: 23%;
+    top: 20%;
     bottom: 51.01%;
     width: 300px;
     height: 350px;
     cursor: pointer;
     outline: none !important;
+    background: transparent;
+    box-shadow: none;
 }
 
 .captureVideoImage {
@@ -106,11 +114,13 @@
     box-sizing: border-box;
     border-radius: 0px 0px 18px 18px;
     outline: none;
+    background: transparent;
+    box-shadow: none;
 }
 
 .videoCapture h3 {
     position: absolute;
-    left: 30px;
+    left: 50px;
     top: 200px;
     margin:0;
     width: fit-content;
@@ -118,7 +128,7 @@
     color: var(--colour-white);
     font-family: 'TitlingGothicFB-Extended-Bold';
     text-transform: uppercase;
-    font-size: 70px;
+    font-size: 60px;
     line-height: 120px;
     text-align: center;
     letter-spacing: 0.03em;
@@ -238,7 +248,7 @@
     }
 
     .videoCapture {
-        top: 33.65%;
+        top: 30.65%;
     }
 
     .timeInSec {
@@ -261,10 +271,20 @@
     }
 
     .imageCaptureContainer {
-        width: 720px;
+        width: 680px;
         height: 850px;
-        left: 45px;
-        top: 60px;
+        left: 65px;
+        top: 70px;
+    }
+
+    .gifImageContainer {
+        position: relative;
+        width: 100% !important;
+        height: 100% !important;
+        margin:0;
+        padding:0;
+        top: 0;
+        left: 0;
     }
 
     .progressbar {
@@ -273,7 +293,7 @@
     }
 
     .footer {
-        top: 950px;
+        top: 970px;
         left: 144px;
     }
 }

@@ -56,7 +56,7 @@ h2 {
     font-style: normal;
     font-weight: bold;
     font-size: 63px;
-    letter-spacing: 0.17em;
+    letter-spacing: 0.1em;
 }
 
 .footer {
@@ -74,17 +74,18 @@ h2 {
 @media only screen and (min-width: 810px) and (max-width: 1080px) {
 
     h1 {
-        font-size: 320px;
+        font-size: 280px;
         width: 573px;
         text-align: center;
         letter-spacing: 0.03em;
     }
 
     h2 {
+        left: 20px;
         width: 575px;
-        height: 76px;
+        height: 70px;
         font-size: 77px;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.1em;
     }
 
     .headerPattern {

@@ -3,7 +3,6 @@ import Webcam from 'react-webcam';
 import { Link } from 'react-router-dom';
 import Styles from './index.module.css';
 import whitePattern from '../../Images/pattern-white2.svg';
-import lilacPattern from '../../Images/pattern-lilac1.svg';
 import tocalogo from '../../Images/tocalogo-lilac.svg';
 import cameraIcon from '../../Images/cameraIcon.svg';
 
@@ -15,16 +14,18 @@ const {
     image,
     imageCapture,
     timeInSec,
-    webcam,
     cameraImage,
     logo,
     footer,
     photoButton,
     gifButton,
     retakeButton,
-    sendTextButton,
-    footerPattern
+    sendTextButton
 } = Styles;
+
+const videoConstraints = {
+    facingMode: 'user'
+};
 
 export default class CapturePhoto extends React.Component {
 
@@ -97,7 +98,7 @@ export default class CapturePhoto extends React.Component {
     render() {
 
         return (
-            <div className={photoContainer}>
+            <div className={photoContainer} >
                 <div className={ !this.state.startTimerClicked ? headerPattern : ''}
                     style={{ backgroundImage: `url('${whitePattern}')`}}
                 />
@@ -106,10 +107,11 @@ export default class CapturePhoto extends React.Component {
                 >
                     {
                         !this.state.imgSrc && (
-                            <Webcam audio={false} ref={this.webcamRef}
+                            <Webcam
+                                audio={false}
+                                ref={this.webcamRef}
                                 screenshotFormat="image/jpeg"
-                                imageSmoothing='true'
-                                className={webcam}
+                                videoConstraints={videoConstraints}
                             />
                         )
                     }
@@ -179,9 +181,9 @@ export default class CapturePhoto extends React.Component {
                             </div>
                         )
                 }
-                <div className={footerPattern}
-                    style={{ backgroundImage: `url('${lilacPattern} ')` }}
-                />
+                {/* <div className={footerPattern}
+                    // style={{ backgroundImage: `url('${lilacPattern} ')` }}
+                /> */}
             </div>
         );
 

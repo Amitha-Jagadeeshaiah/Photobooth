@@ -182,21 +182,9 @@
 /* Landscape mode */
 @media only screen and (min-width: 810px) and (max-width: 1080px) {
 
-    h2 {
-        width: 575px;
-        height: 76px;
-        font-size: 77px;
-        letter-spacing: 0.16em;
-    }
-
     .footer {
         top: 1213px;
         left: 240px;
-    }
-
-    .footerPattern {
-        bottom: -535px;
-        right: 0; 
     }
 
     .imageCaptureContainer{
@@ -228,17 +216,6 @@
 
 /* portrait mode */
 @media only screen and (min-width: 810px) and (orientation: portrait) {
-
-    .footerPattern {
-        height: 450px;
-        width: 350px;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background-repeat: no-repeat; 
-        background-position: right center; 
-        outline: none;
-    }
 
     .imageCaptureContainer {
         width: 680px;

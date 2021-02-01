@@ -229,11 +229,6 @@
         left: 240px;
     }
 
-    .footerPattern {
-        bottom: -535px;
-        right: 0; 
-    }
-
     .imageCaptureContainer{
         width: 861px;
         height: 1075px;
@@ -243,8 +238,8 @@
     }
 
     .progressbar {
-        bottom: 60.01%;
-        left: 35%;
+        bottom: 50.01%;
+        left: 40%;
     }
 
     .videoCapture {
@@ -258,17 +253,6 @@
 
 /* portrait mode */
 @media only screen and (min-width: 810px) and (orientation: portrait) {
-
-    .footerPattern {
-        height: 450px;
-        width: 350px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background-repeat: no-repeat; 
-        background-position: left center; 
-        outline: none;
-    }
 
     .imageCaptureContainer {
         width: 680px;
@@ -288,8 +272,8 @@
     }
 
     .progressbar {
-        bottom: 60.01%;
-        left: 33%;
+        bottom: 65.01%;
+        left: 30%;
     }
 
     .footer {

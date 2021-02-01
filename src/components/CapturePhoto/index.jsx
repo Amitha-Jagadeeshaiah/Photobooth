@@ -24,6 +24,8 @@ const {
 } = Styles;
 
 const videoConstraints = {
+    width: 700,
+    height: 700,
     facingMode: 'user'
 };
 
@@ -111,6 +113,9 @@ export default class CapturePhoto extends React.Component {
                                 audio={false}
                                 ref={this.webcamRef}
                                 screenshotFormat="image/jpeg"
+                                imageSmoothing='true'
+                                width={700}
+                                height={700}
                                 videoConstraints={videoConstraints}
                             />
                         )
@@ -181,9 +186,6 @@ export default class CapturePhoto extends React.Component {
                             </div>
                         )
                 }
-                {/* <div className={footerPattern}
-                    // style={{ backgroundImage: `url('${lilacPattern} ')` }}
-                /> */}
             </div>
         );
 

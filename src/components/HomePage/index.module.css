@@ -5,6 +5,23 @@
     padding:0;
     box-sizing: border-box;
     position: relative;
+    background-image: url(../../Images/bg-pattern-01.svg);
+    background-repeat: no-repeat;
+    background-position: 90px 0px;
+    background-size: 90%;
+}
+
+.homepageContainer::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(../../Images/pattern-white1.svg);
+    background-repeat: no-repeat;
+    background-position: 0px 770px;
+    background-size: 90%;
 }
 
 .headerPattern {
@@ -80,12 +97,12 @@ h2 {
         letter-spacing: 0.03em;
     }
 
-    h2 {
-        left: 20px;
+    .header h2 {
+        left: 25px;
         width: 575px;
         height: 70px;
-        font-size: 77px;
-        letter-spacing: 0.1em;
+        font-size: 70px;
+        letter-spacing: 0.16em;
     }
 
     .headerPattern {
@@ -101,6 +118,6 @@ h2 {
 
 /* portrait mode */
 @media only screen and (min-width: 810px) and (orientation: portrait) {
-
+    
 }
 

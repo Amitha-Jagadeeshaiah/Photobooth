@@ -28,6 +28,12 @@ const {
     sendTextButton
 } = Styles;
 
+const videoConstraints = {
+    width: 700,
+    height: 700,
+    facingMode: 'user'
+};
+
 export default class CreateGIF extends React.Component {
 
     constructor(){
@@ -147,7 +153,7 @@ export default class CreateGIF extends React.Component {
         gifshot.createGIF({
             gifWidth: 600,
             gifHeight: 600,
-            interval: 0.4,
+            interval: 0.5,
             images: this.state.imgSrc
         }, (obj) => {
 
@@ -203,10 +209,14 @@ export default class CreateGIF extends React.Component {
                 >
                     {
                         !this.state.gifVideo && (
-                            <Webcam audio
+                            <Webcam
+                                audio={false}
                                 ref={this.webcamRef}
                                 screenshotFormat="image/mjpeg"
                                 imageSmoothing='true'
+                                width={700}
+                                height={700}
+                                videoConstraints={videoConstraints}
                             />
                         )
                     }

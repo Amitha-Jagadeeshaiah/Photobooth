@@ -201,12 +201,14 @@
         outline: none;
         box-shadow: none;
         background: transparent;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .cameraImage {
         outline: none;
         box-shadow: none;
         background: transparent;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .timeInSec {

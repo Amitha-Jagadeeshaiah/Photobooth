@@ -1,0 +1,340 @@
+.signupContainer {
+    height: 100vh;
+    width: 100vw;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.signupContainer::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(../../Images/pattern-arrows-nails.svg);
+    background-repeat: no-repeat;
+    background-position: -50px 860px;
+    background-size: 110%;
+}
+
+.headerContainer {
+    width:100%;
+    height:430px;
+}
+
+.header1 {
+    position: absolute;
+    width: 548px;
+    height: 297px;
+    left: 143px;
+    top: 50px;
+}
+
+.h1 {
+    position: absolute;
+    width: 100%;
+    height: 56px;
+    margin: 0;
+    top: 0;
+    left:0;
+
+    font-family: 'TitlingGothicFB-Extended-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 54px;
+    text-align: center;
+    letter-spacing: 0.225em;
+    color: var(--colour-white);
+    text-transform: uppercase;
+}
+
+.h2 {
+    position: absolute;
+    margin: 0;
+    width: 220px;
+    height: fit-content;
+    left: 160px;
+    top: 20px;
+    font-family:'TitlingGothicFB-Skyline-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 230px;
+    line-height: 276px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: var(--colour-turquoise);
+    text-transform: uppercase;
+}
+
+.header2 {
+    position: absolute;
+    width: 580px;
+    height: 74px;
+    left: 121px;
+    top: 350px;
+}
+
+.header {
+    margin: 0;
+    font-family: 'SharpSans-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 130.5%;
+    text-align: center;
+    color: var(--colour-white);
+}
+
+.formContainer {
+    position: absolute;
+    width: 588px;
+    height: 540px;
+    left: 116px;
+    top: 440px;
+}
+
+.form{
+    width:100%;
+    height:100%;
+}
+
+.inputContainer {
+    position: relative;
+    margin-top: 15px;
+    width: 588px;
+    height: 60px;
+}
+
+.labelFirstname, .labelSurname, .labelEmail, .labelDOB {
+    background: var(--colour-black);
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-family: 'SharpSans-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 112%;
+    color: var(--colour-turquoise);
+    text-transform: uppercase;
+}
+
+.inputtext {
+    border:2px solid var(--colour-white);
+    border-radius: 10px;
+    background: transparent;
+    box-shadow: none;
+    width: 563px;
+    height: 40px;
+    outline: none;
+    font-size: 23px;
+    padding-left: 18px;
+    color: var(--colour-white);
+}
+
+.input:focus { outline: none; }
+
+.inputtext::placeholder {
+    position: relative;
+    width: 118px;
+    height: 26px;
+    font-family: 'SharpSans-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 112%;
+    color: var(--colour-white);
+}
+
+.checkboxContainer {
+    position: relative;
+    top: 30px;
+    display: flex;
+}
+
+input[type=checkbox] { 
+    visibility: hidden; 
+} 
+
+.inputCheckbox {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    height: 25px; 
+    width: 25px; 
+    border: 2px solid white;
+    background-color: black; 
+}
+
+/* Checkmark to be shown in checkbox */ 
+/* It is not be shown when not checked */ 
+.inputCheckbox:after { 
+    content: ""; 
+    position: absolute; 
+    display: none; 
+} 
+
+/* Display checkmark when checked */ 
+.consentCheckbox input:checked ~ .inputCheckbox:after { 
+    display: block; 
+} 
+  
+/* Styling the checkmark using webkit */ 
+/* Rotated the rectangle by 45 degree and  
+showing only two border to make it look 
+like a tickmark */ 
+.consentCheckbox .inputCheckbox:after { 
+    left: 12px; 
+    bottom: 0; 
+    width: 8px; 
+    height: 24px; 
+    border: solid var(--colour-turquoise); 
+    border-width: 0 4px 4px 0; 
+    -webkit-transform: rotate(45deg); 
+    -ms-transform: rotate(45deg); 
+    transform: rotate(45deg); 
+} 
+
+.consentData {
+    position: relative;
+    width: 540px;
+    left: 30px;
+}
+
+.consentData p {
+    position: relative;
+    width: 100%;
+    padding-left: 0; 
+    font-family: 'SharpSans-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 112%;
+    color: #FFFFFF;
+    margin:0;
+}
+
+.modalLink {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.footerContainer {
+    position: absolute;
+    width: 100%;
+    height: 73.78px;
+    top: 460px;
+    background: var(--colour-black);
+}
+
+.skipSubmission{
+    position: relative;
+    width: 270px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: var(--colour-black);
+    border: 3px solid var(--colour-white);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.btn1h1, .btn2h1{
+    width: 95px;
+    height: 26px;
+    font-family: 'TitlingGothicFB-Extended-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: var(--colour-white);
+    border: 0.5px solid #000000;
+    text-transform: uppercase;
+}
+
+.btn1h2, .btn2h2{
+    width: 196px;
+    height: 13px;
+    font-family: 'TitlingGothicFB-Extended-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11.5px;
+    line-height: 112%;
+    letter-spacing: 0.02em;
+    color: var(--colour-white);
+    text-transform: uppercase;
+}
+
+.submitData {
+    position: relative;
+    width: 270px;
+    height: 100%;
+    left: 45px;
+    top: 0;
+    background: var(--colour-black);
+    border: 3px solid var(--colour-white);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.btn2h1, .btn2h2  {
+    color: var(--colour-turquoise) !important;
+}
+
+.PopupHeader{
+    position: absolute;
+    width: 100%;
+    height: 64px;
+    left: 0;
+    top: 0;
+    font-family: 'SharpSans-Bold';
+    font-style: normal;
+    font-weight: bold;
+}
+
+.PopupHeading1 {
+    margin:0;
+    top: 0;
+    font-size: 30px;
+    color: var(--colour-turquoise);
+}
+
+.PopupHeading2 {
+    margin:0;
+    font-size: 18px;
+    color: var(--colour-white);
+}
+
+.termsAndConditions{
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 780px;
+}
+
+.termsAndConditions p{
+    font-family: 'SharpSans-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 151.5%;
+    color: var(--colour-white);
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.errorMsg {
+    position: relative;
+    top: 5px;
+    color: var(--colour-red);
+    font-size: 18px;
+}
+

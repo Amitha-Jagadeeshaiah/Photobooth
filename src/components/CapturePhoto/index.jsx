@@ -1,4 +1,6 @@
 import React, { createRef } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { flash } from 'react-animations';
 import Webcam from 'react-webcam';
 import { Link } from 'react-router-dom';
 import Styles from './index.module.css';
@@ -6,11 +8,16 @@ import whitePattern from '../../Images/pattern-white2.svg';
 import tocalogo from '../../Images/tocalogo-lilac.svg';
 import cameraIcon from '../../Images/cameraIcon.svg';
 
+const flashAnimation = keyframes`${flash}`;
+const FlashDiv = styled.div`
+    animation: 1s ${flashAnimation};
+`;
 
 const {
     photoContainer,
     headerPattern,
     imageCaptureContainer,
+    flashImage,
     image,
     imageCapture,
     timeInSec,
@@ -24,9 +31,9 @@ const {
 } = Styles;
 
 const videoConstraints = {
-    width: 700,
-    height: 700,
-    facingMode: 'user'
+
+    facingMode: 'user',
+    aspectRatio: 0.75
 };
 
 export default class CapturePhoto extends React.Component {
@@ -114,15 +121,16 @@ export default class CapturePhoto extends React.Component {
                                 ref={this.webcamRef}
                                 screenshotFormat="image/jpeg"
                                 imageSmoothing='true'
-                                width={700}
-                                height={700}
+                                minScreenshotWidth={1620}
                                 videoConstraints={videoConstraints}
                             />
                         )
                     }
                     {
                         this.state.imgSrc
-                            ? <img className={image} src={this.state.imgSrc} alt='selfie' />
+                            ? <FlashDiv className={flashImage}>
+                                <img className={image} src={this.state.imgSrc} alt='selfie' />
+                            </FlashDiv>
                             : this.state.startTimerClicked
                                 ? this.state.seconds > 0
                                     && (

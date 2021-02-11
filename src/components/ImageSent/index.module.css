@@ -1,0 +1,120 @@
+.imageContainer{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url(../../Images/imageSent-header-pattern.svg);
+    background-repeat: no-repeat;
+    background-position: 250px -200px;
+    background-size: 90%;
+}
+
+.imageContainer::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(../../Images/imageSent-footer-pattern.svg);
+    background-repeat: no-repeat;
+    background-position: -350px 600px;
+    background-size: 90%;
+}
+
+.dataContainer{
+    position: relative;
+    width: 480px;
+    left: 180px;
+    height: 1000px;
+    top: 50px;
+}
+
+.headerContainer {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 300px;
+    top: 0;
+}
+
+.header1 {
+    position:absolute;
+    width: 353px;
+    left: 50px;
+    height: 250px;
+    top: 0;
+    margin: 0;
+    font-family: 'TitlingGothicFB-Skyline-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 210px;
+    line-height: 200px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: var(--colour-white);
+    text-transform: uppercase;
+}
+
+.header2 {
+    position:absolute;
+    width: 100%;
+    left: 0;
+    height: 100px;
+    top: 200px;
+    margin: 0;
+    font-family: 'SharpSans-Bold';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 130.5%;
+    text-align: center;
+    color: var(--colour-turquoise);
+    text-transform: uppercase;
+}
+
+.mobileImageContainer {
+    position: absolute;
+    width: 300px;
+    height: 502.61px;
+    left: 80px;
+    top: 330px;
+    box-sizing: border-box;
+    border-radius: 53px;
+}
+
+.controlButtonContainer {
+    position: absolute;
+    width: 320px;
+    height: 79.05px;
+    left: 70px;
+    top: 900px;
+    background: var(--colour-black);
+    box-sizing: border-box;
+}
+
+ button {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    left: 0;
+    background: var(--colour-black);
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+    border: 4px solid var(--colour-turquoise);;
+}
+
+.btn {
+    font-family: 'TitlingGothicFB-Extended-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 29px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: var(--colour-turquoise);
+}
+

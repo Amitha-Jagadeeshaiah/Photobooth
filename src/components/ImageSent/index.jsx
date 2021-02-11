@@ -20,8 +20,7 @@ export default class ImageSent extends React.Component {
         super(props);
 
         this.state = {
-            timerseconds: 10,
-            btnClicked: false
+            timerseconds: 10
         };
         this.timer = 0;
 
@@ -37,27 +36,23 @@ export default class ImageSent extends React.Component {
 
     }
 
-    countDown = () => {
+    countDown = async () => {
 
-        if(!this.state.btnClicked) {
+        const { timerseconds } = this.state;
+        const secondsNext = timerseconds - 1;
 
-            const { timerseconds } = this.state;
-            const secondsNext = timerseconds - 1;
+        if (timerseconds === 0) {
 
-            if (timerseconds === 0) {
+            // No time left, take back to home page!
+            await this.componentWillUnmount();
+            this.props.history.push('/');
 
-                // No time left, take back to home page!
-                clearInterval(this.timer);
-                this.props.history.push('/');
+        } else {
 
-            } else {
-
-                // Remove one second, set state so a re-render happens.
-                this.setState({
-                    timerseconds: secondsNext
-                });
-
-            }
+            // Remove one second, set state so a re-render happens.
+            this.setState({
+                timerseconds: secondsNext
+            });
 
         }
 
@@ -78,13 +73,14 @@ export default class ImageSent extends React.Component {
 
     componentWillUnmount() {
 
-        this.timer = 0;
-        this.setState({
-            btnClicked: true
-        });
+        if (this.timer) {
+
+            clearTimeout(this.timer);
+            this.timer = 0;
+
+        }
 
     }
-
 
     render(){
 

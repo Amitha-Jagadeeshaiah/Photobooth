@@ -1,7 +1,6 @@
 import React, { createRef } from 'react';
 import ProgressBar from 'react-customizable-progressbar';
 import Webcam from 'react-webcam';
-import { Link } from 'react-router-dom';
 import Styles from './index.module.css';
 import whitePattern from '../../Images/GIF-header-pattern.svg';
 import tocalogo from '../../Images/tocalogo-pink.svg';
@@ -29,8 +28,7 @@ const {
 } = Styles;
 
 const videoConstraints = {
-    width: 700,
-    height: 700,
+    aspectRatio: 0.75,
     facingMode: 'user'
 };
 
@@ -52,7 +50,7 @@ export default class CreateGIF extends React.Component {
 
     }
 
-    startTimer = () => {
+    startTimer = async () => {
 
         if (this.timer === 0 && this.state.seconds > 0) {
 
@@ -151,8 +149,8 @@ export default class CreateGIF extends React.Component {
     createGIF = () => {
 
         gifshot.createGIF({
-            gifWidth: 600,
-            gifHeight: 600,
+            gifWidth: 768,
+            gifHeight: 1024,
             interval: 0.5,
             images: this.state.imgSrc
         }, (obj) => {
@@ -177,15 +175,38 @@ export default class CreateGIF extends React.Component {
 
     retakePhoto = () => {
 
-        this.timer = 0;
-        this.setState({
-            startTimerClicked : false,
-            seconds: 7,
-            timerSec: 4,
-            result: 0,
-            gifVideo: '',
-            imgSrc: []
+        window.location.reload();
+
+    }
+
+    sendText = async () => {
+
+        const data = this.state.gifVideo;
+        await this.componentWillUnmount();
+        this.props.history.push({
+            pathname: '/sendText',
+            data
         });
+
+    }
+
+    takePhoto = async () => {
+
+        await this.componentWillUnmount();
+        this.props.history.push({
+            pathname: '/photo'
+        });
+
+    }
+
+    componentWillUnmount() {
+
+        if (this.timer) {
+
+            clearTimeout(this.timer);
+            this.timer = 0;
+
+        }
 
     }
 
@@ -214,8 +235,7 @@ export default class CreateGIF extends React.Component {
                                 ref={this.webcamRef}
                                 screenshotFormat="image/mjpeg"
                                 imageSmoothing='true'
-                                width={700}
-                                height={700}
+                                minScreenshotWidth={768}
                                 videoConstraints={videoConstraints}
                             />
                         )
@@ -276,16 +296,12 @@ export default class CreateGIF extends React.Component {
                     !this.state.gifVideo
                         ? (
                             <div className={footer}>
-                                <Link to={{
-                                    pathname: '/photo'
-                                }}
+                                <button className={photoButton}
+                                    type="button"
+                                    onClick={this.takePhoto}
                                 >
-                                    <button className={photoButton}
-                                        type="button"
-                                    >
-                                        Photo
-                                    </button>
-                                </Link>
+                                    Photo
+                                </button>
                                 <button className={gifButton}
                                     type="button"
                                 >
@@ -301,17 +317,12 @@ export default class CreateGIF extends React.Component {
                                 >
                                     Retake
                                 </button>
-                                <Link to={{
-                                    pathname: '/sendText',
-                                    data: this.state.gifVideo
-                                }}
+                                <button className={sendTextButton}
+                                    type="button"
+                                    onClick={this.sendText}
                                 >
-                                    <button className={sendTextButton}
-                                        type="button"
-                                    >
-                                        Send via Text
-                                    </button>
-                                </Link>
+                                    Send via Text
+                                </button>
                             </div>
                         )
                 }

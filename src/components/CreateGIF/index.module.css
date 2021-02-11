@@ -257,9 +257,9 @@
 @media only screen and (min-width: 810px) and (orientation: portrait) {
 
     .imageCaptureContainer {
-        width: 680px;
+        width: 638px;
         height: 850px;
-        left: 65px;
+        left: 80px;
         top: 70px;
     }
 
@@ -280,7 +280,7 @@
 
     .footer {
         top: 970px;
-        left: 144px;
+        left: 120px;
     }
 }
 

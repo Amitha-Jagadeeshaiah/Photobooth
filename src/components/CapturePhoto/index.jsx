@@ -70,7 +70,7 @@ export default class CapturePhoto extends React.Component {
 
             // No time left, take a picture!
             this.captureImage();
-            clearInterval(this.timer);
+            this.componentWillUnmount();
 
         } else {
 
@@ -93,14 +93,33 @@ export default class CapturePhoto extends React.Component {
 
     }
 
-    retakePhoto = () => {
+    retakePhoto = async () => {
 
-        this.timer = 0;
         this.setState({
             startTimerClicked: false,
             seconds: 4,
             imgSrc: null
         });
+
+    }
+
+    createGIF = async() => {
+
+        await this.componentWillUnmount();
+        this.props.history.push({
+            pathname: '/gif'
+        });
+
+    }
+
+    componentWillUnmount() {
+
+        if (this.timer) {
+
+            clearTimeout(this.timer);
+            this.timer = 0;
+
+        }
 
     }
 
@@ -129,7 +148,10 @@ export default class CapturePhoto extends React.Component {
                     {
                         this.state.imgSrc
                             ? <FlashDiv className={flashImage}>
-                                <img className={image} src={this.state.imgSrc} alt='selfie' />
+                                <img className={image}
+                                    src={this.state.imgSrc}
+                                    alt='selfie'
+                                />
                             </FlashDiv>
                             : this.state.startTimerClicked
                                 ? this.state.seconds > 0
@@ -181,16 +203,12 @@ export default class CapturePhoto extends React.Component {
                                 >
                                     Photo
                                 </button>
-                                <Link to={{
-                                    pathname: '/gif'
-                                }}
+                                <button className={gifButton}
+                                    type="button"
+                                    onClick={this.createGIF}
                                 >
-                                    <button className={gifButton}
-                                        type="button"
-                                    >
-                                        Gif
-                                    </button>
-                                </Link>
+                                    Gif
+                                </button>
                             </div>
                         )
                 }

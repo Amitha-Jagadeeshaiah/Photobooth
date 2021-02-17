@@ -1,12 +1,29 @@
 /* eslint-disable max-len */
-const emailPattern = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-const dobPattern = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
-
+import moment from 'moment';
+const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const greaterThan = (value, min) => value > min;
 const lessThan = (value, max) => value < max;
 
 export const emailIsValid = email => emailPattern.test(email);
-export const dobIsValid = dob => dobPattern.test(dob);
+export const dobIsValid = (date) =>{
+
+    const format = 'DD/MM/YYYY'; // Your date format
+    const resultFormat = 'years'; // Result format (years, months, days)
+
+    const age = moment().diff(moment(date, format), resultFormat, true);
+
+    if (age >= 13){
+
+        return true;
+
+    } else {
+
+        return false;
+
+    }
+
+};
+
 export const isBetween = (value, min, max) => lessThan(value, max) && greaterThan(value, min);
 
 export default {

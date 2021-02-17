@@ -1,7 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Styles from './index.module.css';
 import Popup from '../Popup';
+import ActionConfirmModalDialog from '../ActionConfirmModalDialog';
 import Content from '../Content';
+import { ReactComponent as ErrorIcon} from '../../Images/error-icon.svg';
+import { ReactComponent as CloseIcon} from '../../Images/closeIcon.svg';
 import { emailIsValid, dobIsValid, isBetween } from '../Utilities/validations';
 import {
     firstnameErrorMsg,
@@ -11,40 +15,17 @@ import {
     checkboxErrorMsg
 } from '../Utilities/errorMsg';
 
-const {
-    signupContainer,
-    headerContainer,
-    header1,
-    header2,
-    h1,
-    h2,
-    header,
-    formContainer,
-    form,
-    labelFirstname,
-    labelSurname,
-    labelEmail,
-    labelDOB,
-    footerContainer,
-    inputContainer,
-    inputtext,
-    checkboxContainer,
-    consentCheckbox,
-    inputCheckbox,
-    consentData,
-    modalLink,
-    skipSubmission,
-    submitData,
-    btn1h1,
-    btn1h2,
-    btn2h1,
-    btn2h2,
-    PopupHeader,
-    PopupHeading1,
-    PopupHeading2,
-    termsAndConditions,
-    errorMsg
-} = Styles;
+const { signupContainer,headerContainer,closeSignUpForm,
+    header1,header2,h1,h2,header,formContainer,form,
+    labelFirstname,labelSurname,labelEmail,labelDOB,
+    footerContainer,inputContainer,inputtext,checkboxContainer,
+    checkboxContainer1,consentCheckbox,consentCheckbox1,
+    inputCheckbox,inputCheckbox1,consentData,consentData1,
+    modalLink,skipSubmission,submitData,btn1h1,btn1h2,
+    btn2h1,btn2h2,PopupHeader,PopupHeading1,PopupHeading2,
+    termsAndConditions,actionConfirmheading,confirmActionFooter,
+    confirmActionButton,denyActionButton,errorMsg,checkErrorMsg,
+    checkErrorMsg1 } = Styles;
 
 export default class SignUp extends React.Component {
 
@@ -56,15 +37,18 @@ export default class SignUp extends React.Component {
             surname:'',
             email:'',
             dob:'',
-            checked: true,
-            phoneNumber: this.props.location.mobileNumber || '',
-            data: this.props.location.data || '',
+            checked: false,
+            checked1: false,
+            phoneNumber: this.props.location.userInfo.phoneNumber || '',
+            data: this.props.location.userInfo.data || '',
             modalDialogIsOpen: false,
+            formCloseConfirmation: false,
             firstnameErrorMsg: '',
             surnameErrorMsg: '',
             emailErrorMsg: '',
             dobErrorMsg: '',
             checkboxErrorMsg: '',
+            checkboxErrorMsg1: '',
             validationErrorCount: 0
         };
 
@@ -85,6 +69,14 @@ export default class SignUp extends React.Component {
 
     }
 
+    handleCheck1 = () => {
+
+        this.setState(prevState => ({
+            checked1: !prevState.checked1
+        }));
+
+    }
+
     togglePopup = () => {
 
         this.setState(prevState => ({
@@ -93,15 +85,43 @@ export default class SignUp extends React.Component {
 
     }
 
-    handleImageSubmission = () => {
+    togglemodalDialog = () => {
 
-        const { data, phoneNumber } = this.state;
-        const userInfo = {
-            data,
-            phoneNumber
-        };
-        console.log('IMAGE/GIF of User', userInfo); // This will be replaced by API Call
-        this.props.history.push('/imageSent');
+        this.setState(prevState => ({
+            formCloseConfirmation: !prevState.formCloseConfirmation
+        }));
+
+    }
+
+    handleImageSubmission = async (event) => {
+
+        event.preventDefault();
+        if(this.state.checkboxErrorMsg1) {
+
+            await this.setState({
+                firstnameErrorMsg: '',
+                surnameErrorMsg: '',
+                emailErrorMsg: '',
+                dobErrorMsg: '',
+                checkboxErrorMsg: ''
+            });
+
+        } else {
+
+            await this.validateCheckbox1();
+
+        }
+        if(this.state.checked1) {
+
+            const { data, phoneNumber } = this.state;
+            const userInfo = {
+                data,
+                phoneNumber
+            };
+            console.log('IMAGE/GIF of User', userInfo); // This will be replaced by API Call
+            this.props.history.push('/imageSent');
+
+        }
 
     }
 
@@ -115,7 +135,8 @@ export default class SignUp extends React.Component {
             && this.state.surnameErrorMsg === ''
             && this.state.emailErrorMsg === ''
             && this.state.dobErrorMsg === ''
-            && this.state.checkboxErrorMsg === '') {
+            && this.state.checkboxErrorMsg === ''
+            && this.state.checkboxErrorMsg1 === '') {
 
             const userInfo = {
                 firstname: this.state.firstname,
@@ -142,6 +163,7 @@ export default class SignUp extends React.Component {
         this.validateEmail();
         this.validateDOB();
         this.validateCheckbox();
+        this.validateCheckbox1();
 
     }
 
@@ -219,18 +241,36 @@ export default class SignUp extends React.Component {
 
     }
 
+    validateCheckbox1 = () => {
+
+        if(!this.state.checked1){
+
+            this.setState({checkboxErrorMsg1: checkboxErrorMsg});
+
+        } else {
+
+            this.setState({checkboxErrorMsg1: ''});
+
+        }
+
+    }
+
     render(){
 
         return(
             <div className={signupContainer}>
                 <div className={headerContainer}>
+                    <div className={closeSignUpForm} onClick={this.togglemodalDialog}>
+                        <CloseIcon />
+                    </div>
                     <div className={header1}>
                         <p className={h1}>win</p>
                         <p className={h2}>big</p>
                     </div>
                     <div className={header2}>
                         <p className={header}>
-                            SIGN UP FOR A CHANCE TO WIN PRIZES IF WE USE YOUR SELFIES
+                            SIGN UP FOR A CHANCE TO WIN
+                            PRIZES IF WE USE YOUR SELFIES
                         </p>
                     </div>
                 </div>
@@ -260,9 +300,15 @@ export default class SignUp extends React.Component {
 
                                 }}
                                 onBlur ={this.validateFirstName}
+                                style={this.state.firstnameErrorMsg
+                                    ? {border: '2px solid #FF4D5B'}
+                                    : {border: '2px solid var(--colour-white)'}}
                             />
                         </div>
-                        <span className={errorMsg}>{this.state.firstnameErrorMsg}</span>
+                        <span className={errorMsg}>
+                            {this.state.firstnameErrorMsg && <ErrorIcon />}
+                            &nbsp;&nbsp;{this.state.firstnameErrorMsg}
+                        </span>
 
                         <div className={inputContainer}>
                             <label
@@ -284,9 +330,15 @@ export default class SignUp extends React.Component {
 
                                 }}
                                 onBlur ={this.validateSurname}
+                                style={this.state.surnameErrorMsg
+                                    ? {border: '2px solid #FF4D5B'}
+                                    : {border: '2px solid var(--colour-white)'}}
                             />
                         </div>
-                        <span className={errorMsg}>{this.state.surnameErrorMsg}</span>
+                        <span className={errorMsg}>
+                            {this.state.surnameErrorMsg && <ErrorIcon />}
+                            &nbsp;&nbsp;{this.state.surnameErrorMsg}
+                        </span>
 
                         <div className={inputContainer}>
                             <label
@@ -300,7 +352,7 @@ export default class SignUp extends React.Component {
                                 type="text"
                                 value={this.state.email}
                                 name="email"
-                                placeholder="email"
+                                placeholder="email address"
                                 autoComplete="off"
                                 onChange={(e)=>{
 
@@ -308,16 +360,22 @@ export default class SignUp extends React.Component {
 
                                 }}
                                 onBlur ={this.validateEmail}
+                                style={this.state.emailErrorMsg
+                                    ? {border: '2px solid #FF4D5B'}
+                                    : {border: '2px solid var(--colour-white)'}}
                             />
                         </div>
-                        <span className={errorMsg}>{this.state.emailErrorMsg}</span>
+                        <span className={errorMsg}>
+                            {this.state.emailErrorMsg && <ErrorIcon />}
+                            &nbsp;&nbsp;{this.state.emailErrorMsg}
+                        </span>
 
                         <div className={inputContainer}>
                             <label
                                 className={labelDOB}
                                 htmlFor="dob"
                             >
-                                DOB
+                                Date of birth
                             </label><br />
                             <input
                                 className={inputtext}
@@ -332,9 +390,15 @@ export default class SignUp extends React.Component {
 
                                 }}
                                 onBlur ={this.validateDOB}
+                                style={this.state.dobErrorMsg
+                                    ? {border: '2px solid #FF4D5B'}
+                                    : {border: '2px solid var(--colour-white)'}}
                             />
                         </div>
-                        <span className={errorMsg}>{this.state.dobErrorMsg}</span>
+                        <span className={errorMsg}>
+                            {this.state.dobErrorMsg && <ErrorIcon />}
+                            &nbsp;&nbsp;{this.state.dobErrorMsg}
+                        </span>
 
                         <div className={checkboxContainer}>
                             <label className={consentCheckbox}>
@@ -346,20 +410,46 @@ export default class SignUp extends React.Component {
                                 <span className={inputCheckbox} />
                             </label>
                             <div className={consentData}>
-                                <p>I consent to the usage of my data in accordance with</p>
-                                <p>
+                                <p>I consent to the usage of data in accordance with &nbsp;
                                     <span
                                         className={modalLink}
                                         onClick={this.togglePopup}
                                     >
                                         GDPR
                                     </span>
-                                    &nbsp;and to the sharing of this picture on social media
                                 </p>
-                                <p>by TOCA Social</p>
                             </div>
                         </div>
-                        <span className={errorMsg}>{this.state.checkboxErrorMsg}</span>
+                        <span className={checkErrorMsg}>
+                            {this.state.checkboxErrorMsg && <ErrorIcon />}
+                            &nbsp;&nbsp;{this.state.checkboxErrorMsg}
+                        </span>
+
+                        <div className={checkboxContainer1}>
+                            <label className={consentCheckbox1}>
+                                <input
+                                    type="checkbox"
+                                    checked={this.state.checked1}
+                                    onChange={this.handleCheck1}
+                                />
+                                <span className={inputCheckbox1} />
+                            </label>
+                            <div className={consentData1}>
+                                <p>I consent to the sharing of this picture on &nbsp;
+                                    <span
+                                        className={modalLink}
+                                        onClick={this.togglePopup}
+                                    >
+                                        social media
+                                    </span>
+                                    &nbsp;&nbsp;by TOCA Social
+                                </p>
+                            </div>
+                        </div>
+                        <span className={checkErrorMsg1}>
+                            {this.state.checkboxErrorMsg1 && <ErrorIcon />}
+                            &nbsp;&nbsp;{this.state.checkboxErrorMsg1}
+                        </span>
 
                         <div className={footerContainer}>
                             <button
@@ -383,23 +473,56 @@ export default class SignUp extends React.Component {
                 </div>
                 {
                     this.state.modalDialogIsOpen
-                    &&
-                    <Popup
-                        content={
-                            <>
-                                <div className={PopupHeader}>
-                                    <p className={PopupHeading1}>TOCA Social</p>
-                                    <p className={PopupHeading2}>
-                                        GDPR and Picture sharing Terms and Conditions
-                                    </p>
-                                </div>
-                                <div className={termsAndConditions}>
-                                    {Content()}
-                                </div>
+                        ? (
+                            <Popup content={
+                                <>
+                                    <div className={PopupHeader}>
+                                        <p className={PopupHeading1}>TOCA Social</p>
+                                        <p className={PopupHeading2}>
+                                            GDPR and Picture sharing Terms and Conditions
+                                        </p>
+                                    </div>
+                                    <div className={termsAndConditions}>
+                                        {Content()}
+                                    </div>
 
-                            </>}
-                        handleClose={this.togglePopup}
-                    />
+                                </>}handleClose={this.togglePopup}
+                            />
+                        )
+                        : this.state.formCloseConfirmation
+                        && (
+                            <ActionConfirmModalDialog content={
+                                <>
+                                    <div className={actionConfirmheading}>
+                                        <p>
+                                            If you go, your selfie will be deleted,
+                                            do you still want to exit?
+                                        </p>
+                                    </div>
+                                    <div className={confirmActionFooter}>
+                                        <Link to = {{
+                                            pathname:'/'
+                                        }}
+                                        >
+                                            <button
+                                                className={confirmActionButton}
+                                                type='button'
+                                            >
+                                                Yes
+                                            </button>
+                                        </Link>
+                                        <button
+                                            className={denyActionButton}
+                                            type='button'
+                                            onClick={this.togglemodalDialog}
+                                        >
+                                            No
+                                        </button>
+                                    </div>
+
+                                </>}
+                            />
+                        )
                 }
             </div>
         );

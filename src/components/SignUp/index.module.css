@@ -15,13 +15,20 @@
     left: 0;
     background-image: url(../../Images/pattern-arrows-nails.svg);
     background-repeat: no-repeat;
-    background-position: -50px 860px;
+    background-position: -50px 940px;
     background-size: 110%;
 }
 
 .headerContainer {
-    width:100%;
-    height:430px;
+    width: 100%;
+    height: 370px;
+}
+
+.closeSignUpForm {
+    position: absolute;
+    left: 30px;
+    top: 40px;
+    display: inline-block;
 }
 
 .header1 {
@@ -29,7 +36,7 @@
     width: 548px;
     height: 297px;
     left: 143px;
-    top: 50px;
+    top: 30px;
 }
 
 .h1 {
@@ -74,7 +81,7 @@
     width: 580px;
     height: 74px;
     left: 121px;
-    top: 350px;
+    top: 300px;
 }
 
 .header {
@@ -90,20 +97,21 @@
 
 .formContainer {
     position: absolute;
-    width: 588px;
-    height: 540px;
-    left: 116px;
-    top: 440px;
+    width: 600px;
+    height: 680px;
+    left: 100px;
+    top: 380px;
 }
 
 .form{
+    position: absolute;
     width:100%;
     height:100%;
 }
 
 .inputContainer {
     position: relative;
-    margin-top: 15px;
+    margin-top: 25px;
     width: 588px;
     height: 60px;
 }
@@ -125,16 +133,20 @@
 }
 
 .inputtext {
-    border:2px solid var(--colour-white);
-    border-radius: 10px;
-    background: transparent;
-    box-shadow: none;
-    width: 563px;
-    height: 40px;
-    outline: none;
-    font-size: 23px;
-    padding-left: 18px;
-    color: var(--colour-white);
+    border:2px solid var(--colour-white) !important;
+    border-radius: 10px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    width: 563px !important;
+    height: 40px !important;
+    outline: none !important;
+    font-family: 'SharpSans-Medium' !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 23px !important;
+    padding-left: 18px !important;
+    color: var(--colour-white) !important;
+    caret-color:white !important;
 }
 
 .input:focus { outline: none; }
@@ -142,26 +154,32 @@
 .inputtext::placeholder {
     position: relative;
     width: 118px;
-    height: 26px;
+    height: 20px;
     font-family: 'SharpSans-Medium';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 112%;
     color: var(--colour-white);
+
 }
 
-.checkboxContainer {
+.checkboxContainer, .checkboxContainer1 {
     position: relative;
-    top: 30px;
+    top: 20px;
+    width: 650px;
     display: flex;
+}
+
+.checkboxContainer1 {
+    top: 40px !important;
 }
 
 input[type=checkbox] { 
     visibility: hidden; 
 } 
 
-.inputCheckbox {
+.inputCheckbox, .inputCheckbox1 {
     position: absolute; 
     top: 0; 
     left: 0; 
@@ -177,10 +195,20 @@ input[type=checkbox] {
     content: ""; 
     position: absolute; 
     display: none; 
+}
+
+.inputCheckbox1:after { 
+    content: ""; 
+    position: absolute; 
+    display: none; 
 } 
 
 /* Display checkmark when checked */ 
 .consentCheckbox input:checked ~ .inputCheckbox:after { 
+    display: block; 
+} 
+
+.consentCheckbox1 input:checked ~ .inputCheckbox1:after { 
     display: block; 
 } 
   
@@ -199,14 +227,38 @@ like a tickmark */
     -ms-transform: rotate(45deg); 
     transform: rotate(45deg); 
 } 
+.consentCheckbox1 .inputCheckbox1:after { 
+    left: 12px; 
+    bottom: 0; 
+    width: 8px; 
+    height: 24px; 
+    border: solid var(--colour-turquoise); 
+    border-width: 0 4px 4px 0; 
+    -webkit-transform: rotate(45deg); 
+    -ms-transform: rotate(45deg); 
+    transform: rotate(45deg); 
+} 
 
-.consentData {
+.consentData, .consentData1 {
     position: relative;
     width: 540px;
-    left: 30px;
+    left: 20px;
 }
 
-.consentData p {
+.consentData p{
+    position: relative;
+    width: 100%;
+    padding-left: 0; 
+    font-family: 'SharpSans-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 112%;
+    color: #FFFFFF;
+    margin:0;
+}
+
+.consentData1 p{
     position: relative;
     width: 100%;
     padding-left: 0; 
@@ -228,7 +280,7 @@ like a tickmark */
     position: absolute;
     width: 100%;
     height: 73.78px;
-    top: 460px;
+    top: 600px;
     background: var(--colour-black);
 }
 
@@ -242,6 +294,7 @@ like a tickmark */
     border: 3px solid var(--colour-white);
     box-sizing: border-box;
     cursor: pointer;
+    outline: none;
 }
 
 .btn1h1, .btn2h1{
@@ -282,6 +335,7 @@ like a tickmark */
     border: 3px solid var(--colour-white);
     box-sizing: border-box;
     cursor: pointer;
+    outline: none;
 }
 
 .btn2h1, .btn2h2  {
@@ -331,10 +385,98 @@ like a tickmark */
     margin-bottom: 0;
 }
 
-.errorMsg {
+.actionConfirmheading {
+    position: absolute;
+    width: 580px;
+    height: 100px;
+    left: 30px;
+    top: 76px;
+}
+
+.actionConfirmheading p {
+    font-family: 'SharpSans-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 144%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+.confirmActionFooter {
+    position: absolute;
+    width: 400px;
+    height: 64.1px;
+    left: 100px;
+    top: 226px;
+}
+
+.confirmActionButton {
+    position: absolute;
+    width: 174px;
+    height: 64.1px;
+    left: 0;
+    top: 0;
+    background: #000000;
+    border: 3px solid var(--colour-pink);
+    box-sizing: border-box;
+    font-family: 'TitlingGothicFB-Extended-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: var(--colour-pink);
+    text-transform: uppercase;
+    background: var(--colour-black);
+    cursor: pointer;
+    outline: none;
+}
+
+.denyActionButton {
+    position: absolute;
+    width: 174px;
+    height: 64.1px;
+    left: 230px;
+    top: 0;
+    background: #000000;
+    border: 3px solid var(--colour-white);
+    box-sizing: border-box;
+    font-family: 'TitlingGothicFB-Extended-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: var(--colour-white);
+    text-transform: uppercase;
+    background: var(--colour-black);
+    cursor: pointer;
+    outline: none;
+}
+
+.errorMsg, .checkErrorMsg, .checkErrorMsg1{
     position: relative;
-    top: 5px;
-    color: var(--colour-red);
+    top: 10px;
+    font-family: 'SharpSans-Bold';
+    font-style: normal;
+    font-weight: bold;
     font-size: 18px;
+    line-height: 112%;
+    letter-spacing: 0.02em;
+    color: var(--colour-coral);
+}
+
+.checkErrorMsg{
+    top: 20px !important;
+    left: 50px;
+}
+
+.checkErrorMsg1 {
+    top: 40px !important;
+    left: 50px;
 }
 

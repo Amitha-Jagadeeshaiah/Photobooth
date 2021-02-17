@@ -10,6 +10,7 @@ const {
     header2,
     mobileImageContainer,
     controlButtonContainer,
+    takeAnotherPhoto,
     btn
 } = Styles;
 
@@ -97,7 +98,7 @@ export default class ImageSent extends React.Component {
                         <MobileIcon />
                     </div>
                     <div className={controlButtonContainer} onClick={this.handleClick}>
-                        <button type="button">
+                        <button className={takeAnotherPhoto} type="button">
                             <span className={btn}>Take Another</span>
                         </button>
                     </div>

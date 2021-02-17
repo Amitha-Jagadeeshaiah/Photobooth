@@ -46,6 +46,7 @@
     width: 485px;
     height: 70px;
     left: 70px;
+    top: 20px;
 }
 
 .heading1, .heading2 {
@@ -86,20 +87,6 @@
     left: calc(50% - 28.5px);
 }
 
-.keysDisplay {
-    position: relative;
-    width: 312px;
-    height: 64px;
-    top: 40px;
-    padding: 4px;
-    font-family: 'SharpSans-MediumItalic';
-    font-weight: 500;
-    font-size: 49px;
-    line-height: 64px;
-    text-align: center;
-    color: var(--colour-turquoise);
-}
-
 .mobileKeypadKeys {
     height: 508px;
     cursor: pointer;
@@ -131,8 +118,121 @@
     justify-content: center;
     font-family: 'SharpSans-Bold';
     font-size: 50px;
-    line-height: 66px;
 }
+
+.errorMsg {
+    position: absolute;
+    top: 820px;
+    left: 100px;
+    font-family: 'SharpSans-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 112%;
+    letter-spacing: 0.02em;
+    color: var(--colour-coral);
+}
+
+:global(.iti__flag-container) {
+    left: 20px !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:global(.iti--allow-dropdown input) {
+    padding-left: 135px !important;
+    margin-left: 0;
+    width: 460px;
+    height: 60px;
+    font-family: 'SharpSans-MediumItalic';
+    font-size: 30px;
+    color: white;
+    outline: none;
+    border: none;
+    background: black;
+}
+
+:global(input) {
+    font-family: 'SharpSans-MediumItalic' !important;
+    font-size: 47px !important;
+    color: turquoise !important;
+    caret-color: transparent;
+}
+
+:global(input)::placeholder {
+    opacity: 0.4;
+}
+
+:global(.iti__flag-box, .iti__country-name, .iti__dial-code) {
+    color:black ;
+}
+
+:global(.iti) {
+    top: 30px;
+}
+
+:global(.iti__flag) {
+    transform: scale(2,2.5);
+    margin-left: 20px;
+}
+
+:global(.iti__arrow) {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    border-top: 10px solid rgb(167, 161, 161) !important;
+    margin-left: 25px !important;
+}
+:global(.iti__arrow--up) {
+    border-bottom: none !important;
+}
+
+:global(.iti__country) {
+    padding: 10px 10px !important;
+}
+
+:global(.iti__country-list) {
+    background: black !important;
+    outline: none !important;
+    max-height: 565px !important;
+    margin: -4px 0 0 -1px !important;
+    border: none !important;
+    width: 470px;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+:global(.iti__country):hover {
+    background: turquoise !important;
+}
+
+:global(.iti__country-name) {
+   margin-left: 40px;
+    outline: none !important;
+    font-family: 'Sharp-sans-medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+
+:global(.iti__divider){
+    border-bottom: none !important;
+}
+
+:global(.iti__dial-code){
+    margin-left: 5px !important;
+    font-family: 'Sharp-sans-medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
+:global(.iti__selected-flag){
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+
 
 /* portrait mode */
 @media only screen and (min-width: 810px) and (orientation: portrait) {

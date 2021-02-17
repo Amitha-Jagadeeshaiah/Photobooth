@@ -1,9 +1,9 @@
 .popupBox {
   position: fixed;
   width: 747px;
-  height: 980px;
+  height: 1030px;
   left: 30px;
-  top: 50px;
+  top: 30px;
   background: #000000;
   border: 2px solid #FFFFFF;
   box-sizing: border-box;
